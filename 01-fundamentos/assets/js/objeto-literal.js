@@ -1,4 +1,4 @@
-let personaje = {
+const personaje = {
   nombre: 'Tony Stark',
   codeName: 'Ironman',
   vivo: false,
@@ -37,3 +37,22 @@ console.log(personaje);
 
 delete personaje.edad;
 console.log(personaje);
+
+personaje.casado = true;
+
+const entriesPares = Object.entries(personaje);
+console.log(entriesPares);
+
+// personaje = true;
+Object.freeze(personaje);
+personaje.dinero = 10000000; // no se agrega al objeto
+personaje.casado = false; // no se puede alterar valores del objeto
+
+personaje.direccion.ubicacion = 'Colombia';
+
+console.log(personaje);
+
+const propiedades = Object.getOwnPropertyNames(personaje);
+const valores = Object.values(personaje);
+console.log(propiedades);
+console.log(valores);
