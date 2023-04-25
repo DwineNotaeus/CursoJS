@@ -77,3 +77,12 @@ Upper camelCase -> nombrar Clases, ...
 Low camelCase -> nombrar variables, propiedades, ...
 
 Arreglos: Son un objeto muy parecido a una lista de información, que contiene un grupo de elementos.
+
+document.querySelector('header').innerHTML = 'Udemy'
+'Udemy'
+document.querySelector('.titulo').innerHTML = 'Udemy2'
+'Udemy2'
+const titulo = document.querySelector('.titulo')
+undefined
+titulo.innerText = 'Hola Mundo!'
+'Hola Mundo!'
