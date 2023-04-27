@@ -86,3 +86,30 @@ const titulo = document.querySelector('.titulo')
 undefined
 titulo.innerText = 'Hola Mundo!'
 'Hola Mundo!'
+
+
+
+/* VITE - herramienta frontend de nueva generación que permite crear un servidor de desarrollo y compilar (hacer el build) del código para producción. 
+(Empaquetador de módulos )*/
+
+Microsoft Windows [Version 10.0.19045.2846]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\edwin.villa>cd C:\Cursos\Javascript
+
+C:\Cursos\Javascript>node -v                                    <--------
+v14.18.0
+
+C:\Cursos\Javascript>npm create vite                            <--------
+npx: installed 1 in 5.832s
+√ Project name: ... vite-app
+√ Select a framework: » Vanilla
+√ Select a variant: » JavaScript
+
+Scaffolding project in C:\Cursos\Javascript\vite-app...
+
+Done. Now run:
+
+  cd vite-app
+  npm install
+  npm run dev
