@@ -113,3 +113,5 @@ Done. Now run:
   cd vite-app
   npm install
   npm run dev
+
+  Mover carpeta assets a PUBLIC si se desea desplegar en netlify eso incluirá en la carpeta dist(npm run build)agregando contenido público
