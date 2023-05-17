@@ -19,9 +19,12 @@ export const createTodoHTML = (todo) => {
   `;
 
   const liElement = document.createElement('li');
-  if (!done) liElement.setAttribute('data-id', id);
-
   liElement.innerHTML = html;
+  liElement.setAttribute('data-id', id);
+
+  if ( todo.done )
+  liElement.classList.add('completed');
+
 
   return liElement;
 };
