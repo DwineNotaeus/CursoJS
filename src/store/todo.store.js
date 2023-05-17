@@ -1,6 +1,6 @@
 import { Todo } from '../todos/models/todo.model';
 
-const FILTERS = {
+export const FILTERS = {
   All: 'all',
   Completed: 'completed',
   Pending: 'pending',
@@ -18,12 +18,22 @@ const state = {
 };
 
 const initStore = () => {
-  console.log(state);
+  loadStore();
   console.log('InitStore 🍏');
 };
 
 const loadStore = () => {
-  throw new 'Not Implement'();
+  if (!localStorage.getItem('state')) return;
+
+  const { todos = [], filter = FILTERS.All } = JSON.parse(
+    localStorage.getItem('state')
+  );
+  state.todos = todos;
+  state.filter = filter;
+};
+
+const saveStateToLocalStored = () => {
+  localStorage.setItem('state', JSON.stringify(state));
 };
 
 const getTodos = (filter = FILTERS.All) => {
@@ -45,10 +55,14 @@ const getTodos = (filter = FILTERS.All) => {
  */
 const addTodo = (description) => {
   if (!description) throw new Error('description es requerida');
-
   state.todos.push(new Todo(description));
+  localStorage.setItem('state', JSON.stringify(state));
 };
 
+/**
+ *
+ * @param {*} todoId
+ */
 const toogleTodo = (todoId) => {
   state.todos = state.todos.map((todo) => {
     if (todo.id === todoId) {
@@ -56,13 +70,16 @@ const toogleTodo = (todoId) => {
     }
     return todo;
   });
+  saveStateToLocalStored();
 };
 const deleteTodo = (todoId) => {
   state.todos = state.todos.filter((todo) => todo.id !== todoId);
+  saveStateToLocalStored();
 };
 
 const deleteComplete = () => {
-  state.todos = state.todos.filter((todo) => todo.done);
+  state.todos = state.todos.filter((todo) => !todo.done);
+  saveStateToLocalStored();
 };
 /**
  *
@@ -70,6 +87,7 @@ const deleteComplete = () => {
  */
 const setFilter = (newFilter = FILTERS.All) => {
   state.filter = newFilter;
+  saveStateToLocalStored();
 };
 
 const getCurrentFilter = () => {
