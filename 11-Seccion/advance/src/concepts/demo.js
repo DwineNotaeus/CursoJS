@@ -1,0 +1,7 @@
+/**
+ *
+ * @param {*} element
+ */
+export const demoComponent = (element) => {
+  console.log('demo component');
+};
